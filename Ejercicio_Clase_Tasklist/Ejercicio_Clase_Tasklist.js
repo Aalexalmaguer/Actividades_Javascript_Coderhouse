@@ -1,6 +1,5 @@
 
-
-class Task {
+class Task { 
     constructor(id, descripcion, vencimiento, estado) {
         this.id = id;
         this.descripcion = descripcion;
@@ -14,25 +13,45 @@ class TaskList {
         this.tasks = [];
     }
 
-// Método para agregar una tarea
+    // Método para agregar una tarea
     addTask(newTask) {
         this.tasks.push(newTask);
     }
-}
 
-//Otros métodos a implementar:
-// Metodo para eliminar una tarea deleteTask(){}
-// Metodo para editar una tarea por id editTask(id){}
-// Metodo para mostrar tareas showTasks(){}
+    // Método para guardar tareas en localStorage
+    saveInLocalStorage() {
+        localStorage.setItem("tasks", JSON.stringify(this.tasks));
+    }
+
+    // Método para cargar tareas desde localStorage
+    getTaskLocalStorage() {
+        const tasksinStorage = localStorage.getItem("tasks");
+        
+        if (tasksinStorage) {
+            this.tasks = JSON.parse(tasksinStorage);
+        }
+    }
+    //Otros métodos a implementar:
+    // Metodo para eliminar una tarea deleteTask(){}
+    // Metodo para editar una tarea por id editTask(id){}
+    // Metodo para mostrar tareas showTasks(){}
+}
 
 
 // Generación de lista de tareas
 const myTaskList = new TaskList();
+myTaskList.getTaskLocalStorage();
 
-// Creamos una tarea de ejemplo
-const task1 = new Task(1, "Comprar leche", "2025-09-11", "pendiente");
+if (myTaskList.tasks.length === 0) {
+    // Creamos una tarea de ejemplo
+    const task1 = new Task(1, "Comprar leche", "2025-09-11", "pendiente");
+    const task2 = new Task(2, "Pasear al perro", "2025-09-11", "pendiente");
 
-// Usamos addTask para agregar la tarea a la lista
-myTaskList.addTask(task1);
-console.log(myTaskList);
+    // Usamos addTask para agregar la tarea a la lista
+    myTaskList.addTask(task1);
+    myTaskList.addTask(task2);
 
+    myTaskList.saveInLocalStorage();
+
+    console.log(myTaskList);
+}
