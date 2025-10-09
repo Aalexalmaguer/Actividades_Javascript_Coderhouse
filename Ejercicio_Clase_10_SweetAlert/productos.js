@@ -1,5 +1,6 @@
 // En este archivo tendremos todo lo relacionado con el consumo de la API
 
+import { manejarAgregarAlCarrito } from "./carrito.js";
 //Para tratar la promesa usamos async/await
 async function obtenerListaProductos() {
     // Con el fetch reemplazamos la necesidad de hacer una promesa de manera manual
@@ -35,5 +36,11 @@ function crearTarjetaProducto(producto) { //En la funcion primero debemos accede
         <button class="btn-comprar">Agregar</button> 
     `;
     //Usamos el metodo appendChild para agregar la tarjeta al div output
+
+    const botonComprar = tarjeta.querySelector(".btn-comprar"); // Nos traemos un elemento HTML dentro de la tarjeta
+    botonComprar.addEventListener("click", function() { //Agregamos un evento al boton comprar
+        manejarAgregarAlCarrito(producto.id, producto.title, producto.price);
+    });
+    
     div.appendChild(tarjeta);
 }

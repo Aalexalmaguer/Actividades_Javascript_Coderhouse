@@ -2,7 +2,7 @@
 // import Swal from 'sweetalert2'
 
 //export function confirmarEliminarProducto(nombreProducto) {
-//    return swal.fire({
+//    return Swal.fire({
 //        title: "Eliminar del Carrito",
 //        text: `¿Deseas eliminar "${nombreProducto}" del carrito de compras?`,
 //        icon: "warning",
@@ -19,7 +19,7 @@
 //}
 
 export function confirmarAgregarProducto(nombreProducto) {
-    return swal.fire({
+    return Swal.fire({
         title: "¿Agregar producto al carrito?",
         text: `Deseas agregar "${nombreProducto}" al carrito de compras?`,
         icon: "question",
@@ -32,7 +32,7 @@ export function confirmarAgregarProducto(nombreProducto) {
 }
 
 export function confirmarEliminarProducto(nombreProducto) {
-    return swal.fire({
+    return Swal.fire({
         title: "Eliminar del Carrito",
         text: `¿Deseas eliminar "${nombreProducto}" del carrito de compras?`,
         icon: "warning",
@@ -45,11 +45,11 @@ export function confirmarEliminarProducto(nombreProducto) {
 }
 
 export function mostrarToastExito(nombreProducto) {
-    swal.fire({
+    Swal.fire({
         toast: true, // Modo toast (noificación pequeña)
-        position: top-end, // Posición en la esquina superior derecha
+        position: "top-end", // Posición en la esquina superior derecha
         icon: "success", // Icono de éxito
-        title: mensaje,
+        title: nombreProducto,
         showConfirmButton: false, // No mostrar botón de confirmación
         timer: 3000, // Duración en milisegundos
         timerProgressBar: true, // Barra de progreso del temporizador
@@ -57,11 +57,11 @@ export function mostrarToastExito(nombreProducto) {
 }
 
 export function mostrarToastError(nombreProducto) {
-    swal.fire({
+    Swal.fire({
         toast: true, // Modo toast (noificación pequeña)
-        position: top-end, // Posición en la esquina superior derecha
+        position: "top-end", // Posición en la esquina superior derecha
         icon: "error", // Icono de éxito
-        title: mensaje,
+        title: nombreProducto,
         showConfirmButton: false, // No mostrar botón de confirmación
         timer: 3000, // Duración en milisegundos
         timerProgressBar: true, // Barra de progreso del temporizador
